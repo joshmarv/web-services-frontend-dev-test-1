@@ -1,0 +1,9 @@
+.list-view {
+	/* display: grid ; */
+	display: grid;
+	background: white;
+	/* max-width: 700px; */
+	padding: 30px;
+	box-shadow: 0px 1px 0px #e8e8e8;
+	border-radius: 15px;
+}
