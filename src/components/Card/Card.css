@@ -1,0 +1,38 @@
+.card {
+	position: relative;
+	width: 500px;
+	height: 170px;
+	box-shadow: 3px 3px 18px 1px #e2e2e2;
+	border-radius: 15px;
+	background: white;
+	margin: 1em 0;
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	gap: 30px;
+}
+.card .image {
+	height: 100%;
+	overflow: hidden;
+	border-bottom-left-radius: 15px;
+}
+.card img {
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+.card h3 {
+	font-size: 25px;
+	color: #3503ff;
+}
+.card p {
+	font-weight: 400;
+	color: #3503ff;
+}
+.card .expand-icon {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	border-radius: 50%;
+	box-shadow: 3px 3px 18px 1px #e2e2e2;
+	padding: 0.1em;
+}
