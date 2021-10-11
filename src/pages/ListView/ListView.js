@@ -6,6 +6,20 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const ListView = () => {
 	const [data, setData] = useState([]);
+	const [render, setRender] = useState([]);
+	const [query, setQuery] = useState("");
+
+	const findHero = () => {
+		var PATTERN = query;
+		const filtered = data.filter(function (str) {
+			return str.indexOf(PATTERN) === -1;
+		});
+		setRender(filtered);
+	};
+
+	useEffect(() => {
+		findHero();
+	}, [query]);
 	useEffect(() => {
 		const fetchData = async () => {
 			// const res = await fetchHeroes();
@@ -17,8 +31,8 @@ const ListView = () => {
 			)
 				.then((response) => response.json())
 				.then((data) => {
-					console.log(data);
 					setData(data);
+					setRender(data);
 				});
 		};
 		fetchData();
@@ -26,8 +40,8 @@ const ListView = () => {
 	console.log(data);
 	return (
 		<div className="list-view">
-			<SearchBar />
-			{data.map((item) => {
+			<SearchBar query={query} setQuery={setQuery} />
+			{render.map((item) => {
 				return <Card key={item.id} hero={item} />;
 			})}
 		</div>
