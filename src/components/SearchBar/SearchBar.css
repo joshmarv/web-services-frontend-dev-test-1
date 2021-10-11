@@ -16,3 +16,6 @@
 .search-bar input:focus {
 	outline: 1px solid #e2e2e2;
 }
+.search-bar input::placeholder {
+	font-size: 0.7em;
+}
