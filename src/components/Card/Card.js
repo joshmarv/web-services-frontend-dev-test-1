@@ -22,11 +22,11 @@ const Card = ({ hero }) => {
 					<p>Publisher: {hero.biography.publisher} </p>
 				</div>
 				{/* {toggleCard && ( */}
-				<div className="powers">
+				<div className={toggleCard ? "powers-active" : "powers"}>
 					<h3>Powers</h3>
 					{Object.keys(hero.powerstats).map((power) => {
 						return (
-							<p>
+							<p key={hero.id}>
 								{power} : {hero.powerstats[`${power}`]}
 							</p>
 						);
