@@ -2,6 +2,8 @@ import "./Card.css";
 const Card = ({ hero }) => {
 	return (
 		<div className="card">
+			<div  className="expand-icon">+
+			</div>
 			<div className="image">
 				<img src={hero.images.sm} alt={`hero-${hero.name}`} />
 			</div>
