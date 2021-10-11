@@ -10,10 +10,15 @@
 	/* justify-content: center; */
 	align-items: center;
 	gap: 30px;
+
+	-webkit-transition: height 0.5s ease-in-out;
+	-moz-transition: height 0.5s ease-in-out;
 	transition: height 0.5s ease-in-out;
 }
 .card-expanded {
 	height: 345px;
+	-webkit-transition: height 0.5s ease-in-out;
+	-moz-transition: height 0.5s ease-in-out;
 	transition: height 0.5s ease-in-out;
 }
 .card .image {
@@ -28,10 +33,14 @@
 	width: 200px;
 	height: 350px;
 	margin-top: -50px;
+	-webkit-transition: margin 0.5s ease-in-out;
+	-moz-transition: margin 0.5s ease-in-out;
 	transition: margin 0.5s ease-in-out;
 }
 .card-expanded img {
 	margin-top: 0px;
+	-webkit-transition: margin 0.5s ease-in-out;
+	-moz-transition: margin 0.5s ease-in-out;
 	transition: margin 0.5s ease-in-out;
 }
 .card h3 {
@@ -65,6 +74,14 @@
 	/* overflow: hidden; */
 }
 .powers {
+	transition: display 0.5s ease-in-out;
+	transition-delay: 1s;
+	display: none;
+}
+powers-active {
+	transition: display 0.5s ease-in-out;
+	transition-delay: 1s;
+	display: block;
 }
 .powers h3 {
 	margin: 10px 0;
