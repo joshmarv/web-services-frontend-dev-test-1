@@ -1,24 +1,38 @@
 .card {
 	position: relative;
-	width: 500px;
-	height: 170px;
+	max-width: 600px;
+	height: 200px;
 	box-shadow: 3px 3px 18px 1px #e2e2e2;
-	border-radius: 15px;
+	border-radius: 10px;
 	background: white;
 	margin: 1em 0;
 	display: flex;
 	/* justify-content: center; */
 	align-items: center;
 	gap: 30px;
+	transition: height 0.5s ease-in-out;
+}
+.card-expanded {
+	height: 345px;
+	transition: height 0.5s ease-in-out;
 }
 .card .image {
 	height: 100%;
 	overflow: hidden;
+	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 }
 .card img {
 	border-bottom-left-radius: 15px;
 	border-top-left-radius: 15px;
+	width: 200px;
+	height: 350px;
+	margin-top: -50px;
+	transition: margin 0.5s ease-in-out;
+}
+.card-expanded img {
+	margin-top: 0px;
+	transition: margin 0.5s ease-in-out;
 }
 .card h3 {
 	font-size: 25px;
@@ -47,5 +61,11 @@
 	display: flex;
 	cursor: pointer;
 }
-.card-expanded {
+.hero-details {
+	/* overflow: hidden; */
+}
+.powers {
+}
+.powers h3 {
+	margin: 10px 0;
 }

@@ -6,14 +6,14 @@ const Card = ({ hero }) => {
 		setToggleCard(!toggleCard);
 	};
 	return (
-		<div className="card card-expanded">
+		<div className={toggleCard ? "card card-expanded" : "card"}>
 			<div className="expand-icon" onClick={handleToggleCard}>
 				+
 			</div>
 			<div className="image">
-				<img src={hero.images.sm} alt={`hero-${hero.name}`} />
+				<img src={hero.images.md} alt={`hero-${hero.name}`} />
 			</div>
-			<div>
+			<div className="hero-details">
 				<div>
 					<h3>{hero.name}</h3>
 					<p> Full name: {hero.biography.fullName} </p>
@@ -21,7 +21,18 @@ const Card = ({ hero }) => {
 					<p> Alignment: {hero.biography.alignment} </p>
 					<p>Publisher: {hero.biography.publisher} </p>
 				</div>
-				<div className=""></div>
+				{/* {toggleCard && ( */}
+				<div className="powers">
+					<h3>Powers</h3>
+					{Object.keys(hero.powerstats).map((power) => {
+						return (
+							<p>
+								{power} : {hero.powerstats[`${power}`]}
+							</p>
+						);
+					})}
+				</div>
+				{/* // )} */}
 			</div>
 		</div>
 	);
