@@ -26,7 +26,6 @@ const ListView = () => {
 	console.log(data);
 	return (
 		<div className="list-view">
-			This is the list view
 			<SearchBar />
 			{data.map((item) => {
 				return <Card key={item.id} hero={item} />;
