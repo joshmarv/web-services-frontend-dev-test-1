@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 import "./ListView.css";
 import Card from "../../components/Card/Card";
+import SearchBar from "../../components/SearchBar/SearchBar";
 // import { fetchHeroes } from "../../utils.js/request";
-import { useEffect, useState } from "react";
 
 const ListView = () => {
 	const [data, setData] = useState([]);
@@ -26,6 +27,7 @@ const ListView = () => {
 	return (
 		<div className="list-view">
 			This is the list view
+			<SearchBar />
 			{data.map((item) => {
 				return <Card key={item.id} hero={item} />;
 			})}
