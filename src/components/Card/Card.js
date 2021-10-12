@@ -73,7 +73,10 @@ const Card = ({ hero, tags, setTags }) => {
 								onChange={(e) => onTagChange(e)}
 								value={tag}
 							/>
-							<span onClick={handleAddTag} className="btn">
+							<span
+								onClick={tag.length !== 0 && handleAddTag}
+								className="btn"
+							>
 								Add Tag
 							</span>
 						</div>
