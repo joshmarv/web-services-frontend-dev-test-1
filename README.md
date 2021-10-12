@@ -10,5 +10,11 @@ To Run this project, you have to install all dependencies.
 
  - Type ' npm start ' in your command line or terminal and the should create a local server and start up the application on your local machine
 
--Goodluck
-
+##Follow the steps below
+###Clone this repo and build using NPM
+```
+   git clone https://github.com/winnerjit-rathor/web-services-frontend-dev-test.git
+   cd web-services-frontend-dev-test
+   run npm install
+   run npm run build
+```
