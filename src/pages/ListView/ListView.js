@@ -9,64 +9,25 @@ const ListView = () => {
 	const [render, setRender] = useState([]);
 	const [query, setQuery] = useState("");
 	const [tags, setTags] = useState({});
-	const [tagQuery, setTagQuery] = useState("");
+	// const [tagQuery, setTagQuery] = useState("");
 	const [tagList, setTagList] = useState([]);
 
-	const getTags = () => {
-		let tagList = [];
-		Object.values(tags).forEach((tag) => {
-			tag.forEach((tagItem) => {
-				tagList.append(tagItem.toLowerCase());
-			});
-		});
-		const tagListSet = [...new Set(tagList)];
-
-		return tagListSet;
-	};
 	useEffect(() => {
 		const getTags = () => {
-			let tagList = [];
+			let listOfTags = [];
 			Object.values(tags).forEach((tag) => {
 				tag.forEach((tagItem) => {
-					tagList.append(tagItem.toLowerCase());
+					listOfTags.push(tagItem.toLowerCase());
 				});
 			});
-			const tagListSet = [...new Set(tagList)];
+			const tagListSet = [...new Set(listOfTags)];
 
 			return tagListSet;
 		};
-		const tagList = getTags();
-		setTagList(tagList);
+		const response = getTags();
+		setTagList(response);
 	}, [tags]);
 
-	useEffect(() => {
-		const filterTags = () => {
-			var PATTERN = tagQuery.toLowerCase();
-
-			let keys = [];
-			// Object.values(tags).map(tag => {
-
-			// })
-			Object.entries(tags).forEach(([key, value]) => {
-				value.forEach((tagItem) => {
-					if (tagItem.indexOf(PATTERN) > -1) {
-						keys.push(key);
-						// break;
-					}
-				});
-			});
-			console.log(keys);
-
-			const tagIds = [...new Set(keys)];
-			const filtered = data.filter((word) => !tagIds.includes(word.id));
-			setRender(filtered);
-		};
-
-		filterTags();
-	}, [tagQuery, data, tags]);
-	console.log("tagQuery", tagQuery);
-	console.log(tags);
-	// filter heroes by search
 	useEffect(() => {
 		const findHero = () => {
 			var PATTERN = query.toLowerCase();
@@ -91,22 +52,51 @@ const ListView = () => {
 			)
 				.then((response) => response.json())
 				.then((data) => {
-					setData(data);
-					setRender(data);
+					setData(data.slice(0, 100));
+					setRender(data.slice(0, 100));
 				});
 		};
 		fetchData();
 	}, []);
-	console.log(data);
+
+	const filterTags = (name) => {
+		var PATTERN = name.toLowerCase();
+
+		let keys = [];
+		// Object.values(tags).map(tag => {
+
+		// })
+		Object.entries(tags).forEach(([key, value]) => {
+			value.forEach((tagItem) => {
+				if (tagItem.indexOf(PATTERN) > -1) {
+					keys.push(key);
+					// break;
+				}
+			});
+		});
+		// console.log(keys);
+
+		const tagIds = [...new Set(keys)];
+		const filtered = data.filter((word) => !tagIds.includes(word.id));
+		// console.log(filtered);
+		setRender(filtered);
+	};
+
+	// }, [tagQuery, data, tags]);
+	// console.log("tagQuery", tagQuery);
+	// console.log(tags);
+	// filter heroes by search
+	// console.log(data);
 	return (
 		<div className="list-view">
 			<SearchBar query={query} setQuery={setQuery} />
 			{Object.keys(tags).length !== 0 && (
 				<div className="tags">
-					{tagList.map((name) => {
+					{tagList.map((name, i) => {
 						return (
 							<span
-								onClick={() => setTagQuery(name)}
+								key={`${name}-${i}`}
+								onClick={() => filterTags(name)}
 								className="tag"
 							>
 								{name}
