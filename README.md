@@ -13,8 +13,11 @@ To Run this project, you have to install all dependencies.
 ##Follow the steps below
 ###Clone this repo and build using NPM
 ```
-   git clone https://github.com/winnerjit-rathor/web-services-frontend-dev-test.git
-   cd web-services-frontend-dev-test
-   run npm install
-   run npm run build
+   1. git clone https://github.com/joshmarv/web-services-frontend-dev-test-1.git
+   2. cd web-services-frontend-dev-test-1
+   3. run npm install
+   4. run npm start
+   
+   For a minified version of this project
+   5. run npm run build
 ```
