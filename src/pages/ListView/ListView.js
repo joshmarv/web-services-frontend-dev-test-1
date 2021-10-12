@@ -58,7 +58,7 @@ const ListView = () => {
 		};
 		fetchData();
 	}, []);
-	console.log(data);
+
 	const filterTags = (name) => {
 		console.log(name);
 		var PATTERN = name.toLowerCase();
