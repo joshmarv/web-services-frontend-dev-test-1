@@ -118,6 +118,9 @@ powers-active {
 	border-bottom-right-radius: 5px;
 	padding: 5px;
 }
+.tag-input .btn :hover {
+	background-color: #e1e1e1;
+}
 .tag-input input {
 	height: 100%;
 	border-top-left-radius: 10px;
