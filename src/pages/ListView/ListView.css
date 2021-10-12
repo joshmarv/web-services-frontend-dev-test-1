@@ -19,4 +19,8 @@
 	color: white;
 	border-radius: 5px;
 	padding: 5px;
+	cursor: pointer;
+}
+.tag:hover {
+	background-color: #d3c9c9;
 }
