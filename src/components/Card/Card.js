@@ -19,7 +19,12 @@ const Card = ({ hero, tags, setTags }) => {
 	const onTagChange = (e) => {
 		setTag(e.target.value);
 	};
-	const handleAddTag = () => {
+	const handleAddTag = (e) => {
+		e.preventDefault();
+
+		if (tag.length === 0) {
+			return null;
+		}
 		if (tagsArray) {
 			const newTagList = [...tagsArray];
 			newTagList.push(tag);
@@ -67,19 +72,19 @@ const Card = ({ hero, tags, setTags }) => {
 					</div>
 					<div className="tags-section">
 						<h3 className="powers-heading">Tags</h3>
-						<div className="tag-input">
+						<form className="tag-input">
 							<input
 								type="text"
 								onChange={(e) => onTagChange(e)}
 								value={tag}
 							/>
-							<span
-								onClick={tag.length !== 0 && handleAddTag}
+							<button
+								onClick={(e) => handleAddTag(e)}
 								className="btn"
 							>
 								Add Tag
-							</span>
-						</div>
+							</button>
+						</form>
 						{tagsArray && (
 							<div className="tags">
 								Tags :
