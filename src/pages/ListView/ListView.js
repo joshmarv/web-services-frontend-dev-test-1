@@ -52,14 +52,15 @@ const ListView = () => {
 			)
 				.then((response) => response.json())
 				.then((data) => {
-					setData(data.slice(0, 100));
-					setRender(data.slice(0, 100));
+					setData(data);
+					setRender(data);
 				});
 		};
 		fetchData();
 	}, []);
-
+	console.log(data);
 	const filterTags = (name) => {
+		console.log(name);
 		var PATTERN = name.toLowerCase();
 
 		let keys = [];
@@ -74,19 +75,16 @@ const ListView = () => {
 				}
 			});
 		});
-		// console.log(keys);
 
 		const tagIds = [...new Set(keys)];
-		const filtered = data.filter((word) => !tagIds.includes(word.id));
-		// console.log(filtered);
+		console.log(tagIds);
+		const filtered = data.filter((word) => {
+			return tagIds.includes(word.id.toString());
+		});
+		console.log(filtered);
 		setRender(filtered);
 	};
 
-	// }, [tagQuery, data, tags]);
-	// console.log("tagQuery", tagQuery);
-	// console.log(tags);
-	// filter heroes by search
-	// console.log(data);
 	return (
 		<div className="list-view">
 			<SearchBar query={query} setQuery={setQuery} />
