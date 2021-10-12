@@ -77,11 +77,10 @@ const ListView = () => {
 		});
 
 		const tagIds = [...new Set(keys)];
-		console.log(tagIds);
+
 		const filtered = data.filter((word) => {
 			return tagIds.includes(word.id.toString());
 		});
-		console.log(filtered);
 		setRender(filtered);
 	};
 
