@@ -60,7 +60,6 @@ const ListView = () => {
 	}, []);
 
 	const filterTags = (name) => {
-		console.log(name);
 		var PATTERN = name.toLowerCase();
 
 		let keys = [];
